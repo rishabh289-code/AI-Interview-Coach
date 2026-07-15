@@ -76,6 +76,7 @@ Calculate the ATS score by giving higher importance to required skills. Consider
 If the user asks for multiple things, answer all of them.
 
 Only say "I couldn't find this information in the uploaded resume" if the requested information cannot be found or inferred from the resume or job description.
+Do not add any opening or closing line.Strictly answer the question in bullet points
 """
 
     response = client.models.generate_content(
