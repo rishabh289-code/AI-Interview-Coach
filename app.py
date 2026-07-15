@@ -1,6 +1,5 @@
 import streamlit as st
 from utils import extract_text, chunk_text,createEmbeddings,create_index,search_index,ask_gemini
-#st.file_uploader("Choose a file",type=["pdf","docs"])
 st.title("🤖 AI Interview Coach")
 st.caption("Analyze your resume, calculate ATS score, and prepare for interviews using AI.")
 st.set_page_config(
@@ -77,7 +76,7 @@ elif tech:
     user_question = "Generate 5 technical interview questions based on my resume, projects, and the job description."
 
 
-if analyze or ats or improve or skills or hr or summary:
+if analyze or ats or improve or skills or hr or summary or tech:
         if upload_file is None:
             st.warning("Please upload your resume")
         elif not user_question:
@@ -87,13 +86,9 @@ if analyze or ats or improve or skills or hr or summary:
         else:
             with st.spinner("🤖 AI is analyzing your resume..."):
                 resume_text = extract_text(upload_file)
-                #st.write(resume_text)
                 chunks = chunk_text(resume_text)
 
-
-                #st.write("Number of chunks:", len(chunks))
                 embedding = createEmbeddings(chunks)
-                #st.write("Embedding shape: ",embedding.shape)
 
                 index=create_index(embedding)
                 retrieved_chunks = search_index(
