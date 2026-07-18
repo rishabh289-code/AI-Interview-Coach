@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import extract_text, chunk_text,createEmbeddings,create_index,search_index,ask_gemini
+from utils import extract_text, chunk_text,createEmbeddings,create_index,search_index,ask_groq
 st.title("🤖 AI Interview Coach")
 st.caption("Analyze your resume, calculate ATS score, and prepare for interviews using AI.")
 st.set_page_config(
@@ -97,18 +97,18 @@ if analyze or ats or improve or skills or hr or summary or tech:
                 chunks
                 )
                 try:
-                    answer=ask_gemini(retrieved_chunks,user_question,job_description)
+                    answer=ask_groq(retrieved_chunks,user_question,job_description)
                     
                     st.subheader("📋 Analysis Result")
 
                     st.success("Analysis completed successfully!")
                     st.write(answer)
-                except Exception:
-                     st.error("Unable to generate a response. Please try again.")
+                except Exception as e:
+                     st.error(e)
 st.divider()
 
 st.caption(
-    "Built using ❤️ Streamlit • FAISS • Sentence Transformers • Gemini"
+    "Built using ❤️ Streamlit • FAISS • Sentence Transformers • Groq"
 )
       
    
