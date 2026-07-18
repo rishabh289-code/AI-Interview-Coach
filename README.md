@@ -29,7 +29,7 @@ https://ai-interview-coach-hf7rr8jaz3koh9wtulxdnt.streamlit.app/
 
 - Python
 - Streamlit
-- Google Gemini API
+- GROQ APi
 - Sentence Transformers
 - FAISS
 - pdfplumber
@@ -45,7 +45,7 @@ https://ai-interview-coach-hf7rr8jaz3koh9wtulxdnt.streamlit.app/
 4. The text is divided into smaller chunks.
 5. Sentence Transformers convert the chunks into embeddings.
 6. FAISS retrieves the most relevant chunks based on the user's query.
-7. Gemini generates the final response using the retrieved information.
+7. GROQ generates the final response using the retrieved information.
 
 ---
 
@@ -97,7 +97,7 @@ streamlit run app.py
 Create a `.env` file in the project folder and add your Gemini API key.
 
 ```env
-GEMINI_API_KEY=YOUR_API_KEY
+GROQ_API_KEY=YOUR_API_KEY
 ```
 
 ---
