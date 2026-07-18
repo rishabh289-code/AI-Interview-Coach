@@ -104,7 +104,7 @@ if analyze or ats or improve or skills or hr or summary or tech:
                     st.success("Analysis completed successfully!")
                     st.write(answer)
                 except Exception as e:
-                     st.error(e)
+                     st.error("Unable to generate a response at the moment")
 st.divider()
 
 st.caption(
